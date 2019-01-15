@@ -1,0 +1,17 @@
+{
+  "name": "ufd19_nodejs",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "dependencies": {
+    "dialogflow": "^0.7.0",
+    "dotenv": "^6.2.0",
+    "telegraf": "^3.26.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
