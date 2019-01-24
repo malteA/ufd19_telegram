@@ -1,0 +1,14 @@
+[
+    {
+        "id": "60502e44-de3d-47dc-a5c3-1257fc912383", 
+        "time": "2019-01-25T09:00:00+01:00",
+        "speaker": "88e232cc-c73d-4895-8f35-b906397627d4",
+        "title": "Getting Started"
+    },
+    {
+        "id": "e55b632c-7bd1-462f-9481-5a6cccfdaaa8",
+        "time": "2019-01-25T11:00:00+01:00",
+        "speaker": "88e232cc-c73d-4895-8f35-b906397627d4",
+        "title": "Getting Started 2"
+    }
+]

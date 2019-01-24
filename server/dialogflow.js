@@ -44,13 +44,11 @@ const getIntent = async (query, languageCode) => {
         dialogflowClient
             .detectIntent(getRequest(query, languageCode))
             .then(response => {
-                console.log("Detected Intent");
                 const result = response[0].queryResult;
-                console.log(`  Query: ${result.queryText}`);
-                console.log(`  Response: ${result.fulfillmentText}`);
+                const parameters = getParameters(result.parameters.fields);
                 if (result.intent) {
-                    console.log(`  Intent: ${result.intent.displayName}`);
-                    resolve(result.intent.displayName);
+                    const intent = result.action;
+                    resolve({intent, parameters});
                 } else {
                     console.log(`  No intent matched.`);
                     resolve(`  No intent matched.`);
@@ -62,5 +60,12 @@ const getIntent = async (query, languageCode) => {
             });
         });
 };
+
+const getParameters = (paramFields) => {
+    const parameters = {};
+    const keys = Object.keys(paramFields);
+    keys.map(field => parameters[field] = paramFields[field].stringValue)
+    return parameters; 
+}
 
 module.exports = getIntent;
