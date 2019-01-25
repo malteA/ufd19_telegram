@@ -45,7 +45,10 @@ const getIntent = async (query, languageCode) => {
             .detectIntent(getRequest(query, languageCode))
             .then(response => {
                 const result = response[0].queryResult;
-                const parameters = getParameters(result.parameters.fields);
+                let parameters = [];
+                if (result.parameters) {
+                    parameters = getParameters(result.parameters.fields);
+                }
                 if (result.intent) {
                     const intent = result.action;
                     resolve({intent, parameters});
