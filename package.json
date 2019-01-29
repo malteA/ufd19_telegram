@@ -7,11 +7,13 @@
     "dev": "nodemon"
   },
   "dependencies": {
-    "dialogflow": "^0.7.0",
+    "dialogflow": "^0.8.0",
     "dotenv": "^6.2.0",
-    "telegraf": "^3.26.0"
+    "telegraf": "^3.26.0",
+    "ws": "^6.1.3"
   },
   "devDependencies": {
+    "create-react-app": "^2.1.3",
     "nodemon": "^1.18.9"
   }
 }
