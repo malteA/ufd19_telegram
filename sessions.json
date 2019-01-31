@@ -2,13 +2,97 @@
     {
         "id": "60502e44-de3d-47dc-a5c3-1257fc912383", 
         "time": "2019-01-25T09:00:00+01:00",
-        "speaker": "88e232cc-c73d-4895-8f35-b906397627d4",
-        "title": "Getting Started"
+        "title": "TBD",
+        "lang": ""
     },
     {
         "id": "e55b632c-7bd1-462f-9481-5a6cccfdaaa8",
         "time": "2019-01-25T11:00:00+01:00",
-        "speaker": "88e232cc-c73d-4895-8f35-b906397627d4",
-        "title": "Getting Started 2"
+        "title": "GraphQL with Umbraco",
+        "lang": "en"
+    },
+    {
+        "id": "ae2da89e-e606-42ad-8686-e330fb9f10f4",
+        "time": "2019-01-25T11:00:00+01:00",
+        "title": "Teaching an Old Dog New Tricks",
+        "lang": "en"
+    },
+    {
+        "id": "1a289d0c-057f-441e-bb4f-57f1d8369a61",
+        "time": "2019-01-25T11:00:00+01:00",
+        "title": "Performance in the Javascript Era",
+        "lang": "en"
+    },
+    {
+        "id": "4fdd3976-5b70-4005-87ef-236672d36c0b",
+        "time": "2019-01-25T11:00:00+01:00",
+        "title": "Deep Learning with Unicorns and Umbraco",
+        "lang": "en"
+    },
+    {
+        "id": "46b2602a-85e9-4fbc-90b7-bf1318cbaef0",
+        "time": "2019-01-25T11:00:00+01:00",
+        "title": "Helping yourself to be a part of the community",
+        "lang": ""
+    },
+    {
+        "id": "ba59fc8b-81b4-4a46-a1fc-be4f358bde10",
+        "time": "2019-01-25T11:00:00+01:00",
+        "title": "Umbraco with Functions and Logic Apps",
+        "lang": "en"
+    },
+    {
+        "id": "3b9e8ff9-ba99-465a-b163-82679f4e319a",
+        "time": "2019-01-25T11:00:00+01:00",
+        "title": "Empathy in Tech",
+        "lang": "en"
+    },
+    {
+        "id": "0160b87d-676b-4e92-80c4-51882482de98",
+        "time": "2019-01-25T11:00:00+01:00",
+        "title": "Always up-to-d8! What’s new in C# 8?!",
+        "lang": "en"
+    },
+    {
+        "id": "96beb04f-080b-468b-91ba-f8a87368ccc2",
+        "time": "2019-01-25T11:00:00+01:00",
+        "title": "TBD",
+        "lang": ""
+    },
+    {
+        "id": "c338f11c-e0d7-4283-b75e-5b3917049c1c",
+        "time": "2019-01-25T11:00:00+01:00",
+        "title": "Umbraco als Content-Hub für Omnichannel-Strategien",
+        "lang": "de"
+    },
+    {
+        "id": "6fa58ce3-d8ca-4d3c-9308-0ca6894f98f3",
+        "time": "2019-01-25T11:00:00+01:00",
+        "title": "Magically Integrating External Data",
+        "lang": ""
+    },
+    {
+        "id": "5c6178fe-335e-4127-94d1-8db776d62ec9",
+        "time": "2019-01-25T11:00:00+01:00",
+        "title": "When you think there is no time for learning or coding",
+        "lang": "en"
+    },
+    {
+        "id": "a9bb623f-fee4-47c0-81f6-da93747dc0f0",
+        "time": "2019-01-25T11:00:00+01:00",
+        "title": "Testing... anyone can do it, right?",
+        "lang": ""
+    },
+    {
+        "id": "4948fa14-6c22-4a2e-9d49-d68b61958386",
+        "time": "2019-01-25T11:00:00+01:00",
+        "title": "Keynote",
+        "lang": "en"
+    },
+    {
+        "id": "2a07b4db-a0b6-40b7-9622-c710d17e26f5",
+        "time": "2019-01-25T11:00:00+01:00",
+        "title": "TBD",
+        "lang": ""
     }
 ]

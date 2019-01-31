@@ -1,6 +1,12 @@
 const getIntent = require("./dialogflow");
-const sessions = require("./sessions");
-const speakers = require("./speakers");
+const sessions = require("../sessions");
+const speakers = require("../speakers");
+const {Extra} = require("telegraf");
+
+parseDateToTime = (sDateTime) => {
+    const date = new Date(sDateTime);
+    return `${date.getHours()}:${date.getMinutes()}`;
+}
 
 exports.bot = bot => {
     bot.start(ctx => {
@@ -12,17 +18,28 @@ exports.bot = bot => {
     
     bot.hears('#h5yr', ctx => ctx.replyWithMarkdown('Source Code\n\n ```cmd\nrm -rf / \n```'));
     bot.hears('/speakers', ctx => {
-        ctx.reply("Our Speakers this Year are:");
-        let speakersMd = "";
+        let speakersMd = "Our speakers this year are:\n";
         speakers && speakers.map(speaker => {
-            speakersMd += `${speaker.name}\n`;
+            speakersMd += `${speaker.name} ${speaker.aboutMe ? ` - [learn more](${speaker.aboutMe})` : ''}\n`;
         });
-        ctx.reply(speakersMd);
+        ctx.replyWithMarkdown(speakersMd, Extra.webPreview(false));
     });
     bot.hears('/shedule', ctx => {
         ctx.reply("sending venue");
         ctx.telegram.sendVenue(ctx.message.chat.id, 50.111211, 8.709987, "#UFD19", "Hanauer Landstraße 114");
     });
+    bot.hears('/sessions', ctx => {
+        let sessionsMd = "Our sessions this year are:\n";
+        sessions && sessions.map(session => {
+            sessionsMd += `${parseDateToTime(session.time)} - *${session.title}*\n`;
+            const speaker = speakers.find(x => x.sessionId === session.id);
+            sessionsMd += `(${speaker ? speaker.name : ""})\n`;
+        });
+        ctx.replyWithMarkdown(sessionsMd, Extra.webPreview(false));
+    });    
+    bot.hears('/venue', ctx => {
+        return ctx.telegram.sendVenue(ctx.message.chat.id, 50.121993, 8.672745, "#UFD19", "Gervinusstraße 15 60322 Frankfurt am Main");
+    })
     
     // listens on all text messages if not previosly resolved
     bot.on('text', async (ctx) => {
@@ -41,17 +58,13 @@ exports.bot = bot => {
                 }
                 break;
             case "location":
-                await ctx.reply("UFD19 is located in Frankfurt");
-                return ctx.telegram.sendVenue(ctx.message.chat.id, 50.111211, 8.709987, "#UFD19", "Hanauer Landstraße 114");
-                break;
+                return ctx.telegram.sendVenue(ctx.message.chat.id, 50.121993, 8.672745, "#UFD19", "Gervinusstraße 15 60322 Frankfurt am Main");
             case "speakers":
-                await ctx.reply("Our Speakers \n #h5yr");
-                let speakersMd = "";
+                let speakersMd = "Our speakers this year are:\n";
                 speakers && speakers.map(speaker => {
-                    speakersMd += `${speaker.name}\n`;
+                    speakersMd += `${speaker.name} ${speaker.aboutMe ? ` - [learn more](${speaker.aboutMe})` : ''}\n`;
                 });
-                await ctx.reply(speakersMd);
-                return;
+                return ctx.replyWithMarkdown(speakersMd, Extra.webPreview(false));
             default:
                 console.log(intent);
                 console.log(ctx.message);
@@ -60,11 +73,6 @@ exports.bot = bot => {
     
         return ctx.reply(`${name}: ${intent} parameters ${JSON.stringify(parameters)}`);
     });
-    
-    bot.on('venue', ctx => {
-        console.log(ctx.message);
-        ctx.reply("thx venue");
-    })
     
     bot.launch();
     return bot;
