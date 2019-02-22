@@ -1,4 +1,4 @@
-li.history {
+/* li.history {
     list-style-type: none;
 }
 .chat.server {
@@ -68,4 +68,34 @@ li.history {
     position: absolute;
     bottom: 0px;
     width: 100%;
+} */
+.material-chat {
+    padding-bottom: 75px;
+}
+.material-chat .chat {
+    width: fit-content;
+    margin: 0 15px;
+}
+.material-chat .chat.right {
+    margin-left: auto;
+}
+.material-chat .chat.right > div {
+    margin-left: auto;
+}
+.material-chat .compose-message {
+    position: fixed;
+    bottom: 20px;
+    right: 0;
+    width: 100%;
+}
+.material-chat .compose-message > div {
+    margin: 0 10% 0 10%;
+}
+.send-blue svg {
+    color: hsl(207, 90%, 54%);
+}
+@media (max-width: 480px) {
+    .material-chat .compose-message > div {
+        margin: 0 20px 0 20px;
+    }
 }

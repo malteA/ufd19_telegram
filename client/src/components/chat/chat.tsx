@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import "./chat.css";
+import { Paper, Typography, List, ListItem, Avatar, ListItemText, SnackbarContent, Icon, IconButton, InputBase } from "@material-ui/core";
+import { Send } from "@material-ui/icons";
 
 interface State {
     message: string;
@@ -26,41 +28,44 @@ export default class Chat extends Component<any, State> {
                 return this.setState({history: evt.data});
             }
             messages.push(evt);
-            this.setState({messages})
+            this.setState({messages}, () => {
+                const scrollHeight: number = document.body.scrollHeight;
+                window.scrollTo(0, scrollHeight);
+            })
         }
     }
 
     public render(): JSX.Element {
         return(
-            <div className="chat">
-                <div className="list">
-                    {this.state.history && this.state.history.map((history, key) => {
-                        // return <li className={`history chat ${history.author === "-1" ? "server" : "client"}`} key={key}>{history.text}</li>
-                        return <div className={`message ${history.author === "-1" ? "received" : "send"}`} key={key}>
-                            <span>
-                                <span>{history.author === "-1" ? "server" : "client"}</span>
-                                <br />
-                                {history.text}
-                            </span>
-                        </div>
-                    })}
+            <>
+            <div className="material-chat">
+                <div>
                     {this.state.messages && this.state.messages.map((message, key) => {
-                        // return <li className={`chat ${message.author === "-1" ? "server" : "client"}`} key={key}>{message.data}</li>
-                        return <div className={`message ${message.author === "-1" ? "received" : "send"}`} key={key}>
-                            <span>
-                                <span>{message.author === "-1" ? "server" : "client"}</span>
-                                <br />
-                                {message.data}
-                            </span>
-                        </div>
+                        const author: string = message.author === "-1" ? "Server" : "You";
+                        return <SnackbarContent
+                            key={key}
+                            className={`chat ${message.author === "-1" ? "" : "right"}`}
+                            aria-describedby="client-snackbar"
+                            message={
+                                <>
+                                    <span id="client-snackbar" className="message">
+                                        <Icon className="icon iconVariant" />
+                                        {message.data}
+                                    </span>
+                                </>
+                            } />
                     })}
                 </div>
-                <hr />
                 <div className="compose-message">
-                    <input type="text" onChange={this.handleChangeMessage} />
-                    <button onClick={this.handleSendMessage}>Send</button>
+                    <Paper>
+                        <InputBase placeholder="message" multiline={true} onChange={this.handleChangeMessage} value={this.state.message} />
+                        <IconButton className="send-blue" aria-label="send" onClick={this.handleSendMessage}>
+                            <Send />
+                        </IconButton>
+                    </Paper>
                 </div>
             </div>
+            </>
         )
     }
 
@@ -69,10 +74,13 @@ export default class Chat extends Component<any, State> {
     }
 
     private handleSendMessage = () => {
+        // if (!this.state.message) {
+        //     return;
+        // }
         const message: any = {type: "message", data: this.state.message, author: "1"};
         this.ws.send(this.state.message);
         const messages: string[] = this.state.messages;
         messages.push(message);
-        this.setState({messages})
+        this.setState({messages, message: ""})
     }
 }

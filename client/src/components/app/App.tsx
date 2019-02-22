@@ -12,19 +12,6 @@ class App extends Component<any, any> {
           </p>
         </header>
         <Chat />
-        {/* <div className="chat">
-          <div className="list">
-            <div className="message">
-              <span>
-                <span>text-top</span>
-                <br />
-                text-bottom
-              </span>
-            </div>
-          </div>
-          <hr className="divider" />
-          <div className="send"></div>
-        </div> */}
       </div>
     );
   }
