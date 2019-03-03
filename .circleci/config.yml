@@ -31,7 +31,7 @@ jobs:
       - run:
           name: Deploy over SSH
           command: |
-            ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST -p $SSH_PASSWORD "./deploy_ufd19_server.sh mallau.net:8080/ufd19_telegram"
+            sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "./deploy_ufd19_server.sh mallau.net:8080/ufd19_telegram"
 workflows:
   version: 2
   build_and_deploy:
