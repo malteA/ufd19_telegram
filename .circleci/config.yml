@@ -10,17 +10,17 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Setup .env
-        command: |
-          echo TELEGRAM_BOT_TOKEN=$TELEGRAM_BOT_TOKEN >> .env
-          echo DIALOGFLOW_PROJECT_ID=$DIALOGFLOW_PROJECT_ID >> .env
-          echo DIALOGFLOW_PROJECT_PRIVATE_KEY=$DIALOGFLOW_PROJECT_PRIVATE_KEY >> .env
-          echo DIALOGFLOW_PROJECT_EMAIL=$DIALOGFLOW_PROJECT_EMAIL >> .env
+          name: Setup .env
+          command: |
+            echo TELEGRAM_BOT_TOKEN=$TELEGRAM_BOT_TOKEN >> .env
+            echo DIALOGFLOW_PROJECT_ID=$DIALOGFLOW_PROJECT_ID >> .env
+            echo DIALOGFLOW_PROJECT_PRIVATE_KEY=$DIALOGFLOW_PROJECT_PRIVATE_KEY >> .env
+            echo DIALOGFLOW_PROJECT_EMAIL=$DIALOGFLOW_PROJECT_EMAIL >> .env
       - run:
-        name: Build Docker image
-        command: docker build -t mallau.net:8080/ufd19_telegram
+          name: Build Docker image
+          command: docker build -t mallau.net:8080/ufd19_telegram
       - run:
-        name: Push to mallau Docker Registry
-        command: |
-          docker login -u $MALLAU_DOCKER_LOGIN -p $MALLAU_DOCKER_PASSWORD
-          docker push mallau.net:8080/ufd19_telegram
+          name: Push to mallau Docker Registry
+          command: |
+            docker login -u $MALLAU_DOCKER_LOGIN -p $MALLAU_DOCKER_PASSWORD
+            docker push mallau.net:8080/ufd19_telegram
