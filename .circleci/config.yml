@@ -28,10 +28,13 @@ jobs:
   deploy:
     machine: true
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "35:f0:af:8b:75:48:3e:6c:6b:60:51:7b:92:91:0f:db"
       - run:
           name: Deploy over SSH
           command: |
-            sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "./deploy_ufd19_server.sh mallau.net:8080/ufd19_telegram"
+            ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "./deploy_ufd19_server.sh mallau.net:8080/ufd19_telegram"
 workflows:
   version: 2
   build_and_deploy:
