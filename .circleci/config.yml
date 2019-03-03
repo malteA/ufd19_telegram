@@ -22,5 +22,21 @@ jobs:
       - run:
           name: Push to mallau Docker Registry
           command: |
-            docker login mallau.net:8080 -u $MALLAU_DOCKER_LOGIN -p $MALLAU_DOCKER_PASSWORD
+            echo $MALLAU_DOCKER_PASSWORD | docker login mallau.net:8080 -u $MALLAU_DOCKER_LOGIN --password-stdin
             docker push mallau.net:8080/ufd19_telegram
+            docker logout mallau.net:8080
+  deploy:
+    machine: true
+    steps:
+      - run:
+          name: Deploy over SSH
+          command: |
+            ssh -o $SSH_USER@$SSH_HOST -p $SSH_PASSWORD "./deploy_ufd19_server.sh mallau.net:8080/ufd19_telegram"
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
