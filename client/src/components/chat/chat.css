@@ -91,6 +91,9 @@
 .material-chat .compose-message > div {
     margin: 0 10% 0 10%;
 }
+.material-chat .compose-message .text-field {
+    width: 80%;
+}
 .send-blue svg {
     color: hsl(207, 90%, 54%);
 }
