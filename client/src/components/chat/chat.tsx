@@ -37,7 +37,6 @@ export default class Chat extends Component<any, State> {
 
     public render(): JSX.Element {
         return(
-            <>
             <div className="material-chat">
                 <div>
                     {this.state.messages && this.state.messages.map((message, key) => {
@@ -58,14 +57,18 @@ export default class Chat extends Component<any, State> {
                 </div>
                 <div className="compose-message">
                     <Paper>
-                        <InputBase placeholder="message" multiline={true} onChange={this.handleChangeMessage} value={this.state.message} />
+                        <InputBase
+                            placeholder="message"
+                            multiline={true}
+                            onChange={this.handleChangeMessage}
+                            value={this.state.message}
+                            className="text-field" />
                         <IconButton className="send-blue" aria-label="send" onClick={this.handleSendMessage}>
                             <Send />
                         </IconButton>
                     </Paper>
                 </div>
             </div>
-            </>
         )
     }
 
@@ -74,12 +77,14 @@ export default class Chat extends Component<any, State> {
     }
 
     private handleSendMessage = () => {
-        // if (!this.state.message) {
-        //     return;
-        // }
-        const message: any = {type: "message", data: this.state.message, author: "1"};
-        this.ws.send(this.state.message);
+        const inputText: string = this.state.message.trim();
         const messages: string[] = this.state.messages;
+        if (!inputText) {
+            this.setState({message: ""})
+            return;
+        }
+        const message: any = {type: "message", data: inputText, author: "1"};
+        this.ws.send(inputText);
         messages.push(message);
         this.setState({messages, message: ""})
     }
