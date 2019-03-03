@@ -18,7 +18,7 @@ jobs:
             echo DIALOGFLOW_PROJECT_EMAIL=$DIALOGFLOW_PROJECT_EMAIL >> .env
       - run:
           name: Build Docker image
-          command: docker build -t mallau.net:8080/ufd19_telegram
+          command: docker build -t mallau.net:8080/ufd19_telegram .
       - run:
           name: Push to mallau Docker Registry
           command: |
