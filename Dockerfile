@@ -1,20 +1,14 @@
-FROM node:10-alpine
+FROM mhart/alpine-node:10
 
 WORKDIR /home/node/app
 COPY package*.json ./
 RUN npm ci --prod
 
-# RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app && npm ci --prod
-
-FROM mhart/alpine-node:base-10
-WORKDIR /home/node/app
-COPY --from=0 /home/node/app ./home/node/app
+FROM alpine:3.7
+COPY --from=0 /usr/bin/node /usr/bin/
+COPY --from=0 /usr/lib/libgcc* /usr/lib/libstdc* /usr/lib/
+WORKDIR /app
+COPY --from=0 /home/node/app .
 COPY . .
-
-# USER node
-
-# COPY --chown=node:node . .
-
-EXPOSE 8080
-
-CMD [ "node", "server.js"]
+EXPOSE 3000
+CMD ["node", "server.js"]
