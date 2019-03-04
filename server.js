@@ -11,6 +11,6 @@ const speakers = require("./speakers");
 
 
 const server = http.createServer((req, res) => {});
-server.listen(1337, () => {});
+server.listen(4000, () => {});
 
 const wsEmitter = require("./server/webSockets").wsEmitter(server);

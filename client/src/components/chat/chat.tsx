@@ -9,7 +9,7 @@ interface State {
     history: any[];
 }
 export default class Chat extends Component<any, State> {
-    private ws: WebSocket = new WebSocket(`ws://${window.location.hostname}:1337`);
+    private ws: WebSocket = new WebSocket(`ws://${window.location.hostname}:4000`);
 
     public constructor(prop: any) {
         super(prop);
