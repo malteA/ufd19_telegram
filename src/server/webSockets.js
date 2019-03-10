@@ -9,7 +9,12 @@ const WebSocketServer = WebSocket.Server;
 
 let emitter;
 const connectedClients = [];
-const history = [] 
+
+
+parseDateToTime = (sDateTime) => {
+    const date = new Date(sDateTime);
+    return `${date.getHours()}:${date.getMinutes()}`;
+}
 
 const configureWs = server => {
     const wss = new WebSocketServer({server});
@@ -23,26 +28,22 @@ const configureWs = server => {
     }
 
     wss.on("connection", (ws, req) => {
-        console.log("conn");
-        const index = connectedClients.push(ws) - 1;
-        const ip = req.connection.remoteAddress;
-
-        sendHistory(ws, history);
-
         sendInfo(ws, "gday mate");
 
         ws.on("message", message => {
-            history.push({
-                time: (new Date()).getTime(),
-                text: message,
-                author: ip
-            })
             switch (message) {
                 case "/help":
                     ws.se
                     return sendMessage(ws, "help");
                 case "/sessions":
-                    return sendMessage(ws, "sessions");
+                    sendMessage(ws, "Our Sessions this Year are:");'F8FF'
+                    let sessionsMd = "";
+                    sessions && sessions.map(session => {
+                        sessionsMd += `${parseDateToTime(session.time)} - *${session.title}*\n`;
+                        const speaker = speakers.find(x => x.sessionId === session.id);
+                        sessionsMd += `(${speaker ? speaker.name : ""})\n`;
+                    });
+                    return sendMessage(ws, sessionsMd);
                 case "/speakers":
                     sendMessage(ws, "Our Speakers this Year are:");
                     let speakersMd = "";
@@ -52,7 +53,7 @@ const configureWs = server => {
                     return sendMessage(ws, speakersMd);
             }
         });
-        console.log(`connected with ip: ${ip}`);
+        console.log(`connected with ip: ${req.connection.remoteAddress}`);
     })
 
 
@@ -60,11 +61,6 @@ const configureWs = server => {
 }
 
 const configureWsEmitter = ws => {
-    wsEmitter.on("event", () => {
-        ws.broadcast("hi from emitter");
-        console.log("emitter");
-    });
-
     wsEmitter.on("message", () => {
         ws.broadcast("hi from emitter");
         console.log("emitter");
@@ -73,17 +69,8 @@ const configureWsEmitter = ws => {
     return wsEmitter;
 }
 
-const sendHistory = (ws, data) => {
-    return ws.send(JSON.stringify({type: "history", data }));
-}
-
 const sendMessage = (ws, data) => {
     const time = (new Date()).getTime();
-    history.push({
-        time,
-        text: data,
-        author: "-1"
-    })
     return ws.send(JSON.stringify({type: "message", data, author: "-1", time}));
 }
 
