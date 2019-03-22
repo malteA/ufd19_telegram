@@ -1,98 +1,190 @@
 [
     {
-        "id": "60502e44-de3d-47dc-a5c3-1257fc912383", 
-        "time": "2019-01-25T09:00:00+01:00",
-        "title": "TBD",
-        "lang": ""
-    },
-    {
         "id": "e55b632c-7bd1-462f-9481-5a6cccfdaaa8",
-        "time": "2019-01-25T11:00:00+01:00",
+        "timeFrom": "2019-04-05T11:00:00",
+        "timeTo": "2019-04-05T12:00:00",
         "title": "GraphQL with Umbraco",
-        "lang": "en"
+        "lang": "en",
+        "track": 1,
+        "speakers": [
+            "a2339038-31db-4d4b-be7f-c03cdbbd1786"
+        ]
     },
     {
         "id": "ae2da89e-e606-42ad-8686-e330fb9f10f4",
-        "time": "2019-01-25T11:00:00+01:00",
+        "timeFrom": "2019-04-05T15:30:00",
+        "timeTo": "2019-04-05T16:30:00",
         "title": "Teaching an Old Dog New Tricks",
-        "lang": "en"
+        "lang": "en",
+        "track": 1,
+        "speakers": [
+            "082a16df-ff5e-455b-ba19-24d5b626867d"
+        ]
     },
     {
         "id": "1a289d0c-057f-441e-bb4f-57f1d8369a61",
-        "time": "2019-01-25T11:00:00+01:00",
+        "timeFrom": "2019-04-05T17:00:00",
+        "timeTo": "2019-04-05T18:00:00",
         "title": "Performance in the Javascript Era",
-        "lang": "en"
+        "lang": "en",
+        "track": 1,
+        "speakers": [
+            "cc83f26f-5f76-4a68-9365-121b5c1f3cf5"
+        ]
     },
     {
         "id": "4fdd3976-5b70-4005-87ef-236672d36c0b",
-        "time": "2019-01-25T11:00:00+01:00",
+        "timeFrom": "2019-04-05T12:15:00",
+        "timeTo": "2019-04-05T13:15:00",
         "title": "Deep Learning with Unicorns and Umbraco",
-        "lang": "en"
+        "lang": "en",
+        "track": 1,
+        "speakers": [
+            "0246cd3a-fca7-481a-8fe7-2b4359680bda"
+        ]
     },
     {
         "id": "46b2602a-85e9-4fbc-90b7-bf1318cbaef0",
-        "time": "2019-01-25T11:00:00+01:00",
+        "timeFrom": "2019-04-05T14:15:00",
+        "timeTo": "2019-04-05T15:15:00",
         "title": "Helping yourself to be a part of the community",
-        "lang": ""
+        "lang": "en",
+        "track": 3,
+        "speakers": [
+            "a1735cac-a093-474d-94bd-bf2cd0b26823"
+        ]
     },
     {
         "id": "ba59fc8b-81b4-4a46-a1fc-be4f358bde10",
-        "time": "2019-01-25T11:00:00+01:00",
+        "timeFrom": "2019-04-05T15:30:00",
+        "timeTo": "2019-04-05T16:30:00",
         "title": "Umbraco with Functions and Logic Apps",
-        "lang": "en"
+        "lang": "en",
+        "track": 3,
+        "speakers": [
+            "598d395a-ee9a-48b4-b12b-b9b4708692e9"
+        ]
     },
     {
         "id": "3b9e8ff9-ba99-465a-b163-82679f4e319a",
-        "time": "2019-01-25T11:00:00+01:00",
+        "timeFrom": "2019-04-05T11:00:00",
+        "timeTo": "2019-04-05T15:15:00",
         "title": "Empathy in Tech",
-        "lang": "en"
+        "lang": "en",
+        "track": 3,
+        "speakers": [
+            "2b0c8ccf-85d1-4f9e-9133-b8d5b4a9cd63"
+        ]
     },
     {
         "id": "0160b87d-676b-4e92-80c4-51882482de98",
-        "time": "2019-01-25T11:00:00+01:00",
+        "timeFrom": "2019-04-05T15:30:00",
+        "timeTo": "2019-04-05T16:30:00",
         "title": "Always up-to-d8! What’s new in C# 8?!",
-        "lang": "en"
+        "lang": "en",
+        "track": 3,
+        "speakers": [
+            "5056b60b-9a3f-4b2f-897b-1ad02a4315bb"
+        ]
     },
     {
         "id": "96beb04f-080b-468b-91ba-f8a87368ccc2",
-        "time": "2019-01-25T11:00:00+01:00",
-        "title": "TBD",
-        "lang": ""
+        "timeFrom": "2019-04-05T12:15:00",
+        "timeTo": "2019-04-05T13:15:00",
+        "title": "Hyper High-Performance für Umbraco-Websites",
+        "lang": "de",
+        "track": 2,
+        "speakers": [
+            "4ed3fad3-f6be-4c5d-b7f4-56c6a9efae13",
+            "42047635-5eaa-4f90-9b46-414a40804a4e"
+        ]
     },
     {
         "id": "c338f11c-e0d7-4283-b75e-5b3917049c1c",
-        "time": "2019-01-25T11:00:00+01:00",
+        "timeFrom": "2019-04-05T11:00:00",
+        "timeTo": "2019-04-05T12:00:00",
         "title": "Umbraco als Content-Hub für Omnichannel-Strategien",
-        "lang": "de"
+        "lang": "de",
+        "track": 2,
+        "speakers": [
+            "cb39d3ee-34d7-4f92-9ede-5472d517637b",
+            "a8f30786-e441-4191-89f4-8f8453a825e7"
+        ]
     },
     {
         "id": "6fa58ce3-d8ca-4d3c-9308-0ca6894f98f3",
-        "time": "2019-01-25T11:00:00+01:00",
+        "timeFrom": "2019-04-05T14:15:00",
+        "timeTo": "2019-04-05T15:15:00",
         "title": "Magically Integrating External Data",
-        "lang": ""
-    },
-    {
-        "id": "5c6178fe-335e-4127-94d1-8db776d62ec9",
-        "time": "2019-01-25T11:00:00+01:00",
-        "title": "When you think there is no time for learning or coding",
-        "lang": "en"
+        "lang": "en",
+        "track": 1,
+        "speakers": [
+            "d9ce2b1f-3613-4aab-a399-e68d153924cb"
+        ]
     },
     {
         "id": "a9bb623f-fee4-47c0-81f6-da93747dc0f0",
-        "time": "2019-01-25T11:00:00+01:00",
+        "timeFrom": "2019-04-05T17:00:00",
+        "timeTo": "2019-04-05T18:00:00",
         "title": "Testing... anyone can do it, right?",
-        "lang": ""
+        "lang": "en",
+        "track": 2,
+        "speakers": [
+            "bc266c8d-872f-43c0-9662-e4efe98a87f3"
+        ]
     },
     {
         "id": "4948fa14-6c22-4a2e-9d49-d68b61958386",
-        "time": "2019-01-25T11:00:00+01:00",
+        "timeFrom": "2019-04-05T09:30:00",
+        "timeTo": "2019-04-05T10:30:00",
         "title": "Keynote",
-        "lang": "en"
+        "lang": "en",
+        "track": 1,
+        "speakers": [
+            "38aad30a-5076-4fe9-8504-b6995b60956e"
+        ]
     },
     {
-        "id": "2a07b4db-a0b6-40b7-9622-c710d17e26f5",
-        "time": "2019-01-25T11:00:00+01:00",
-        "title": "TBD",
-        "lang": ""
+        "id": "b7da67f3-037b-48de-a707-69c8145c81c0",
+        "timeFrom": "2019-04-05T14:15:00",
+        "timeTo": "2019-04-05T15:15:00",
+        "title": "Introducing Ucommerce Academy: a New Way to get Ucommerce-certified",
+        "lang": "en",
+        "track": 2,
+        "speakers": [
+            "916ade61-aac0-4226-93e3-c979a5853682",
+            "dc5dd9e7-a7fe-42b0-9576-19c94b2bff46"
+        ]
+    },
+    {
+        "id": "628d3d30-ed04-48d4-b88a-0208316224b0",
+        "timeFrom": "2019-04-05T15:30:00",
+        "timeTo": "2019-04-05T16:30:00",
+        "title": "XXX (E-Commerce/commercetools)",
+        "lang": "de",
+        "track": 1,
+        "speakers": [
+            "4ed3fad3-f6be-4c5d-b7f4-56c6a9efae13"
+        ]
+    },
+    {
+        "id": "4f19f224d-2617-49f4-b0c5-683e7b6bb529",
+        "timeFrom": "2019-04-05T12:15:00",
+        "timeTo": "2019-04-05T13:15:00",
+        "title": "Live-Stream: UmbraCoffe",
+        "lang": "en",
+        "track": 3,
+        "speakers": []
+    },
+    {
+        "id": "86b4f38c-16dd-4f13-aab5-0d2aed2043ef",
+        "timeFrom": "2019-04-05T17:00:00",
+        "timeTo": "2019-04-05T18:00:00",
+        "title": "How About that v8?",
+        "lang": "en",
+        "track": 3,
+        "speakers": [
+            "3a2f1582-47fb-4105-bc36-c81716b0061a"
+        ]
     }
 ]

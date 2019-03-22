@@ -11,13 +11,14 @@ let emitter;
 const connectedClients = [];
 
 
-parseDateToTime = (sDateTime) => {
-    const date = new Date(sDateTime);
-    return `${date.getHours()}:${date.getMinutes()}`;
-}
 
 const configureWs = server => {
     const wss = new WebSocketServer({server});
+
+    const parseDateToTime = (sDateTime) => {
+        const date = new Date(sDateTime);
+        return `${date.getHours()}:${date.getMinutes()}`;
+    }
 
     wss.broadcast = data => {
         wss.clients.forEach(client => {
@@ -33,15 +34,16 @@ const configureWs = server => {
         ws.on("message", message => {
             switch (message) {
                 case "/help":
-                    ws.se
                     return sendMessage(ws, "help");
                 case "/sessions":
-                    sendMessage(ws, "Our Sessions this Year are:");'F8FF'
+                    sendMessage(ws, "Our Sessions this Year are:");
                     let sessionsMd = "";
                     sessions && sessions.map(session => {
-                        sessionsMd += `${parseDateToTime(session.time)} - *${session.title}*\n`;
-                        const speaker = speakers.find(x => x.sessionId === session.id);
-                        sessionsMd += `(${speaker ? speaker.name : ""})\n`;
+                        sessionsMd += `${parseDateToTime(session.timeFrom)} - *${session.title}*\n`;
+                        session.speakers.map(sessionSpeaker => {
+                            let speaker = speakers.find(x => x.id === sessionSpeaker);
+                            sessionsMd += `(${speaker ? speaker.name : ""})\n`;
+                        }) 
                     });
                     return sendMessage(ws, sessionsMd);
                 case "/speakers":

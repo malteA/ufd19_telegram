@@ -5,10 +5,18 @@ const {Extra} = require("telegraf");
 
 parseDateToTime = (sDateTime) => {
     const date = new Date(sDateTime);
-    return `${date.getHours()}:${date.getMinutes()}`;
+    return date.toLocaleTimeString("de-DE", {minute: "2-digit", hour: "2-digit"});
 }
 
 exports.bot = bot => {
+    const sortedSessions = sessions.sort((a, b) => {
+        const moveTo = Date.parse(a.timeFrom) - Date.parse(b.timeFrom);
+        if (moveTo === 0) {
+            return a.track - b.track
+        }
+        return moveTo;
+    });
+
     bot.start(ctx => {
         const name = ctx.message.from.username || ctx.message.from.first_name;
         ctx.reply(`Welcome! ${name}`);
@@ -24,16 +32,20 @@ exports.bot = bot => {
         });
         ctx.replyWithMarkdown(speakersMd, Extra.webPreview(false));
     });
-    bot.hears('/shedule', ctx => {
-        ctx.reply("sending venue");
-        ctx.telegram.sendVenue(ctx.message.chat.id, 50.111211, 8.709987, "#UFD19", "Hanauer Landstraße 114");
+    bot.hears('/preparty', ctx => {
+        ctx.telegram.sendVenue(ctx.message.chat.id, 50.111211, 8.709987, "#UFD19 Preparty", "Hanauer Landstraße 114");
     });
     bot.hears('/sessions', ctx => {
         let sessionsMd = "Our sessions this year are:\n";
-        sessions && sessions.map(session => {
-            sessionsMd += `${parseDateToTime(session.time)} - *${session.title}*\n`;
-            const speaker = speakers.find(x => x.sessionId === session.id);
-            sessionsMd += `(${speaker ? speaker.name : ""})\n`;
+
+        sortedSessions && sortedSessions
+            .map(session => {
+            sessionsMd += `⏱ ${parseDateToTime(session.timeFrom)} - *${session.title}*\n`;
+            session.speakers.map(sessionSpeaker => {
+                let speaker = speakers.find(x => x.id === sessionSpeaker);
+                sessionsMd += `_(${speaker ? speaker.name : ""})_\n`;
+            });
+            sessionsMd += `Track: ${session.track}\n`;
         });
         ctx.replyWithMarkdown(sessionsMd, Extra.webPreview(false));
     });    
@@ -52,11 +64,24 @@ exports.bot = bot => {
     
         switch(intent) {
             case "next_session":
-                const session = sessions.filter(x => x.time === parameters.time);
-                if (session && session.length !== 0) {
-                    return ctx.reply(`Next Session at ${new Date(parameters.time).getDate()} will be "${session[0].title}"`);
+                let nextSessionsMd = "No Session Found";
+                ctx.reply(parseDateToTime(parameters.time));
+                let nextSessions = sortedSessions
+                .filter(x => {
+                        const timeFrom = parseDateToTime(x.timeFrom); 
+                        const matched = timeFrom === parseDateToTime(parameters.time)
+                        return matched;
+                });
+                if (nextSessions.length === 0) {
+                    nextSessions = sortedSessions.filter(x => parseDateToTime(x.timeFrom >= parseDateToTime(parameters.time))).slice(0, 3);
                 }
-                break;
+                if (nextSessions && nextSessions.length !== 0) {
+                    nextSessionsMd = nextSessions.length === 1 ? "Next Session\n" : "Next Sessions\n";
+                    nextSessions.map(nextSession => {
+                        nextSessionsMd += `⏱ ${parseDateToTime(nextSession.timeFrom)} will be "${nextSession.title}" \n`;
+                    })
+                }
+                return ctx.replyWithMarkdown(nextSessionsMd, Extra.webPreview(false));
             case "location":
                 return ctx.telegram.sendVenue(ctx.message.chat.id, 50.121993, 8.672745, "#UFD19", "Gervinusstraße 15 60322 Frankfurt am Main");
             case "speakers":

@@ -1,109 +1,91 @@
 [{
-    "id": "88e232cc-c73d-4895-8f35-b906397627d4",
-    "name": "Claus Jensen",
-    "sessionId": "60502e44-de3d-47dc-a5c3-1257fc912383",
-    "aboutMe": "https://umbracofestival.de/blog/posts/2019/januar/meet-the-speakers-benjamin-howarth/",
-    "twitter": ""
-}, {
     "id": "a2339038-31db-4d4b-be7f-c03cdbbd1786",
     "name": "Pete Duncanson",
-    "sessionId": "e55b632c-7bd1-462f-9481-5a6cccfdaaa8",
     "aboutMe": "",
     "twitter": "https://twitter.com/peteduncanson"
 }, {
     "id": "082a16df-ff5e-455b-ba19-24d5b626867d",
     "name": "Ismail Mayat",
-    "sessionId": "ae2da89e-e606-42ad-8686-e330fb9f10f4",
     "aboutMe": "https://umbracofestival.de/blog/posts/2019/januar/meet-the-speakers-ismail-mayat/",
     "twitter": "https://twitter.com/ismailmayat"
 }, {
     "id": "cc83f26f-5f76-4a68-9365-121b5c1f3cf5",
     "name": "Benjamin Howarth",
-    "sessionId": "1a289d0c-057f-441e-bb4f-57f1d8369a61",
     "aboutMe": "https://umbracofestival.de/blog/posts/2019/januar/meet-the-speakers-benjamin-howarth/",
     "twitter": "https://twitter.com/benjaminhowarth"
 }, {
     "id": "0246cd3a-fca7-481a-8fe7-2b4359680bda",
     "name": "Henk Boelman",
-    "sessionId": "4fdd3976-5b70-4005-87ef-236672d36c0b",
     "aboutMe": "https://umbracofestival.de/blog/posts/2019/januar/meet-the-speakers-henk-boelman/",
     "twitter": "https://twitter.com/hboelman"
 }, {
     "id": "a1735cac-a093-474d-94bd-bf2cd0b26823",
     "name": "Poornima Nayar",
-    "sessionId": "46b2602a-85e9-4fbc-90b7-bf1318cbaef0",
     "aboutMe": "",
     "twitter": "https://twitter.com/PoornimaNayar"
 }, {
     "id": "598d395a-ee9a-48b4-b12b-b9b4708692e9",
     "name": "Callum Whyte",
-    "sessionId": "ba59fc8b-81b4-4a46-a1fc-be4f358bde10",
     "aboutMe": "https://umbracofestival.de/blog/posts/2019/januar/meet-the-speakers-callum-whyte/",
     "twitter": "https://twitter.com/callumbwhyte"
 }, {
     "id": "2b0c8ccf-85d1-4f9e-9133-b8d5b4a9cd63",
-    "name": "Carole Logan",
-    "sessionId": "3b9e8ff9-ba99-465a-b163-82679f4e319a",
+    "name": "Carole Rennie Logan",
     "aboutMe": "https://umbracofestival.de/blog/posts/2019/januar/meet-the-speakers-carole-rennie-logan/",
     "twitter": "https://twitter.com/crgrieve"
 }, {
     "id": "5056b60b-9a3f-4b2f-897b-1ad02a4315bb",
     "name": "Marcin Zajkowski",
-    "sessionId": "0160b87d-676b-4e92-80c4-51882482de98",
     "aboutMe": "https://umbracofestival.de/blog/posts/2019/januar/meet-the-speakers-marcin-zajkowski-2/",
     "twitter": ""
 }, {
     "id": "4ed3fad3-f6be-4c5d-b7f4-56c6a9efae13",
     "name": "Marcel Wege",
-    "sessionId": "96beb04f-080b-468b-91ba-f8a87368ccc2",
     "aboutMe": "",
     "twitter": "https://twitter.com/weegyman"
 }, {
+    "id": "42047635-5eaa-4f90-9b46-414a40804a4e",
+    "name": "Dennis Zille",
+    "aboutMe": "",
+    "twitter": ""
+}, {
     "id": "cb39d3ee-34d7-4f92-9ede-5472d517637b",
     "name": "Mirko Matytschak",
-    "sessionId": "c338f11c-e0d7-4283-b75e-5b3917049c1c",
     "aboutMe": "https://umbracofestival.de/blog/posts/2019/januar/meet-the-speakers-maximilian-vollendorf-mirko-matytschak/",
     "twitter": ""
 }, {
     "id": "a8f30786-e441-4191-89f4-8f8453a825e7",
     "name": "Maximilian Vollendorf",
-    "sessionId": "c338f11c-e0d7-4283-b75e-5b3917049c1c",
     "aboutMe": "https://umbracofestival.de/blog/posts/2019/januar/meet-the-speakers-maximilian-vollendorf-mirko-matytschak/",
     "twitter": "https://twitter.com/m_vollendorf"
 }, {
     "id": "d9ce2b1f-3613-4aab-a399-e68d153924cb",
     "name": "Damiaan Peters",
-    "sessionId": "6fa58ce3-d8ca-4d3c-9308-0ca6894f98f3",
     "aboutMe": "",
     "twitter": "https://twitter.com/dampeebe"
 }, {
-    "id": "ad436000-493b-4d50-ac0c-a1e2e3e5aa94",
-    "name": "Eleftheria Batsou",
-    "sessionId": "5c6178fe-335e-4127-94d1-8db776d62ec9",
-    "aboutMe": "https://umbracofestival.de/blog/posts/2019/januar/meet-the-speakers-eleftheria-batsou/",
-    "twitter": "https://twitter.com/BatsouElef"
-}, {
     "id": "bc266c8d-872f-43c0-9662-e4efe98a87f3",
     "name": "Ramona de Wit-van Ark",
-    "sessionId": "a9bb623f-fee4-47c0-81f6-da93747dc0f0",
     "aboutMe": "",
     "twitter": "https://twitter.com/RamonadeWit"
 }, {
     "id": "38aad30a-5076-4fe9-8504-b6995b60956e",
     "name": "Niels Hartvig",
-    "sessionId": "4948fa14-6c22-4a2e-9d49-d68b61958386",
     "aboutMe": "",
     "twitter": "https://twitter.com/thechiefunicorn"
 }, {
     "id": "916ade61-aac0-4226-93e3-c979a5853682",
-    "name": "Lukas Schuhmacher",
-    "sessionId": "2a07b4db-a0b6-40b7-9622-c710d17e26f5",
+    "name": "Linus Dahl",
     "aboutMe": "",
-    "twitter": "https://twitter.com/byte5net"
+    "twitter": ""
 }, {
     "id": "dc5dd9e7-a7fe-42b0-9576-19c94b2bff46",
-    "name": "Sören Deger",
-    "sessionId": "2a07b4db-a0b6-40b7-9622-c710d17e26f5",
+    "name": "Jens Josefsson",
     "aboutMe": "",
-    "twitter": "https://twitter.com/SoerenDeger"
+    "twitter": ""
+}, {
+    "id": "3a2f1582-47fb-4105-bc36-c81716b0061a",
+    "name": "Kenneth Jakobsen",
+    "aboutMe": "",
+    "twitter": ""
 }]
