@@ -17,8 +17,16 @@ const configureWs = server => {
 
     const parseDateToTime = (sDateTime) => {
         const date = new Date(sDateTime);
-        return `${date.getHours()}:${date.getMinutes()}`;
+        return date.toLocaleTimeString("de-DE", {minute: "2-digit", hour: "2-digit"});
     }
+
+    const sortedSessions = sessions.sort((a, b) => {
+        const moveTo = Date.parse(a.timeFrom) - Date.parse(b.timeFrom);
+        if (moveTo === 0) {
+            return a.track.length - b.track.length
+        }
+        return moveTo;
+    });
 
     wss.broadcast = data => {
         wss.clients.forEach(client => {
@@ -34,16 +42,18 @@ const configureWs = server => {
         ws.on("message", message => {
             switch (message) {
                 case "/help":
+                case "help":
                     let helpMd = "";
                     helpMd += "Here are the Commands:\n";
                     helpMd += "/sessions\n";
-                    helpMd += "/speakers";
+                    helpMd += "/speakers\n";
+                    helpMd += "Checkout our Telegram bot https://t.me/ufd19_bot";
                     return sendMessage(ws, helpMd);
                 case "/sessions":
                     sendMessage(ws, "Our Sessions this Year are:");
                     let sessionsMd = "";
-                    sessions && sessions.map(session => {
-                        sessionsMd += `${parseDateToTime(session.timeFrom)} - ${session.lang === "en" ? "🇬🇧" : "🇩🇪"} *${session.title}*\n`;
+                    sortedSessions && sortedSessions.map(session => {
+                        sessionsMd += `${session.lang === "en" ? "🇬🇧" : "🇩🇪"} ${parseDateToTime(session.timeFrom)} - *${session.title}*\n`;
                         session.speakers.map(sessionSpeaker => {
                             let speaker = speakers.find(x => x.id === sessionSpeaker);
                             sessionsMd += `(${speaker ? speaker.name : ""})\n`;
@@ -58,6 +68,8 @@ const configureWs = server => {
                         speakersMd += `${speaker.name}\n`;
                     });
                     return sendMessage(ws, speakersMd);
+                default:
+                    return sendMessage(ws, "default");
             }
         });
         console.log(`connected with ip: ${req.connection.remoteAddress}`);

@@ -12,7 +12,7 @@ exports.bot = bot => {
     const sortedSessions = sessions.sort((a, b) => {
         const moveTo = Date.parse(a.timeFrom) - Date.parse(b.timeFrom);
         if (moveTo === 0) {
-            return a.track - b.track
+            return a.track.length - b.track.length
         }
         return moveTo;
     });
@@ -106,6 +106,8 @@ exports.bot = bot => {
     
         return ctx.reply(`${name}: ${intent} parameters ${JSON.stringify(parameters)}`);
     });
+
+    bot.catch(err => console.log(err));
     
     bot.launch();
     return bot;
