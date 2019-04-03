@@ -47,9 +47,9 @@ const configureWs = server => {
                         session.speakers.map(sessionSpeaker => {
                             let speaker = speakers.find(x => x.id === sessionSpeaker);
                             sessionsMd += `(${speaker ? speaker.name : ""})\n`;
-                        }) 
+                        });
+                        sessionsMd += `Track: ${session.track}\n`; 
                     });
-                    sessionsMd += `Track: ${session.track}\n`;
                     return sendMessage(ws, sessionsMd);
                 case "/speakers":
                     sendMessage(ws, "Our Speakers this Year are:");
