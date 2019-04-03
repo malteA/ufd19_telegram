@@ -40,7 +40,7 @@ const configureWs = server => {
         sendInfo(ws, "gday mate");
 
         ws.on("message", message => {
-            switch (message) {
+            switch (message.toLowerCase()) {
                 case "/help":
                 case "help":
                     let helpMd = "";
