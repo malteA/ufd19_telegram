@@ -34,6 +34,10 @@ const configureWs = server => {
         ws.on("message", message => {
             switch (message) {
                 case "/help":
+                    let helpMd = "";
+                    helpMd += "Here are the Commands:\n";
+                    helpMd += "/sessions\n";
+                    helpMd += "/speakers";
                     return sendMessage(ws, "help");
                 case "/sessions":
                     sendMessage(ws, "Our Sessions this Year are:");
@@ -45,6 +49,7 @@ const configureWs = server => {
                             sessionsMd += `(${speaker ? speaker.name : ""})\n`;
                         }) 
                     });
+                    sessionsMd += `Track: ${session.track}\n`;
                     return sendMessage(ws, sessionsMd);
                 case "/speakers":
                     sendMessage(ws, "Our Speakers this Year are:");

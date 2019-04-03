@@ -45,7 +45,7 @@ exports.bot = bot => {
                 let speaker = speakers.find(x => x.id === sessionSpeaker);
                 sessionsMd += `_(${speaker ? speaker.name : ""})_\n`;
             });
-            sessionsMd += `Track: ${session.track}\n`;
+            sessionsMd += `Room: ${session.track}\n`;
         });
         ctx.replyWithMarkdown(sessionsMd, Extra.webPreview(false));
     });    
@@ -80,6 +80,7 @@ exports.bot = bot => {
                     nextSessions.map(nextSession => {
                         nextSessionsMd += `⏱ ${parseDateToTime(nextSession.timeFrom)} will be "${nextSession.title}" \n`;
                     })
+                    nextSessionsMd += `Room: ${session.track}\n`;
                 }
                 return ctx.replyWithMarkdown(nextSessionsMd, Extra.webPreview(false));
             case "location":
