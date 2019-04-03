@@ -91,7 +91,7 @@
         "id": "96beb04f-080b-468b-91ba-f8a87368ccc2",
         "timeFrom": "2019-04-05T12:15:00",
         "timeTo": "2019-04-05T13:15:00",
-        "title": "Hyper High-Performance für Umbraco-Websites",
+        "title": "Performance All Around the World: Umbraco global skalieren mit Azure",
         "lang": "de",
         "track": "II",
         "speakers": [
@@ -141,7 +141,8 @@
         "lang": "en",
         "track": "I",
         "speakers": [
-            "38aad30a-5076-4fe9-8504-b6995b60956e"
+            "38aad30a-5076-4fe9-8504-b6995b60956e",
+            "1bf5d9d4-961d-4d7f-a0ec-4603f79825cf"
         ]
     },
     {
@@ -160,7 +161,7 @@
         "id": "628d3d30-ed04-48d4-b88a-0208316224b0",
         "timeFrom": "2019-04-05T15:30:00",
         "timeTo": "2019-04-05T16:30:00",
-        "title": "XXX (E-Commerce/commercetools)",
+        "title": "Content-Commerce mit v8 und commercetools",
         "lang": "de",
         "track": "I",
         "speakers": [
@@ -185,6 +186,18 @@
         "track": "III",
         "speakers": [
             "3a2f1582-47fb-4105-bc36-c81716b0061a"
+        ]
+    },
+    {
+        "id": "99777318-172a-427f-8666-d94af9a33d90",
+        "timeFrom": "2019-04-05T09:00:00",
+        "timeTo": "2019-04-05T09:30:00",
+        "title": "Welcome & Warm-Up",
+        "lang": "en",
+        "track": "I",
+        "speakers": [
+            "0d78b5ab-5921-4110-a190-3d7b2c4d9715",
+            "a2339038-31db-4d4b-be7f-c03cdbbd1786"
         ]
     }
 ]

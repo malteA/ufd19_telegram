@@ -22,13 +22,20 @@ exports.bot = bot => {
         ctx.reply(`Welcome! ${name}`);
     });
     
-    bot.help(ctx => ctx.reply("Getting Started\n\nbe a 🦄"));
+    bot.help(ctx => {
+        let helpMd = "Here are the Commands:\n";
+        helpMd += "/sessions - All Sessions\n";
+        helpMd += "/speakers - All Speakers\n";
+        helpMd += "/preparty - Location of the Venue\n";
+        helpMd += "/venue - Location of the Venue";
+        return ctx.replyWithMarkdown(helpMd, Extra.webPreview(false));
+    });
     
     bot.hears('#h5yr', ctx => ctx.replyWithMarkdown('Source Code\n\n ```cmd\nrm -rf / \n```'));
     bot.hears('/speakers', ctx => {
         let speakersMd = "Our speakers this year are:\n";
         speakers && speakers.map(speaker => {
-            speakersMd += `${speaker.name} ${speaker.aboutMe ? ` - [learn more](${speaker.aboutMe})` : ''}\n`;
+            speakersMd += `${speaker.twitter ? `[🐦](${speaker.twitter})` : "    "} ${speaker.name} ${speaker.aboutMe ? ` - [learn more](${speaker.aboutMe})` : ''}\n`;
         });
         ctx.replyWithMarkdown(speakersMd, Extra.webPreview(false));
     });
@@ -40,7 +47,7 @@ exports.bot = bot => {
 
         sortedSessions && sortedSessions
             .map(session => {
-            sessionsMd += `⏱ ${parseDateToTime(session.timeFrom)} - *${session.title}*\n`;
+            sessionsMd += `${session.lang === "en" ? "🇬🇧" : "🇩🇪"} ${parseDateToTime(session.timeFrom)} - *${session.title}*\n`;
             session.speakers.map(sessionSpeaker => {
                 let speaker = speakers.find(x => x.id === sessionSpeaker);
                 sessionsMd += `_(${speaker ? speaker.name : ""})_\n`;
@@ -78,7 +85,7 @@ exports.bot = bot => {
                 if (nextSessions && nextSessions.length !== 0) {
                     nextSessionsMd = nextSessions.length === 1 ? "Next Session\n" : "Next Sessions\n";
                     nextSessions.map(nextSession => {
-                        nextSessionsMd += `⏱ ${parseDateToTime(nextSession.timeFrom)} will be "${nextSession.title}" \n`;
+                        nextSessionsMd += `${session.lang === "en" ? "🇬🇧" : "🇩🇪"} ${parseDateToTime(nextSession.timeFrom)} will be "${nextSession.title}" \n`;
                     })
                     nextSessionsMd += `Room: ${session.track}\n`;
                 }
@@ -88,7 +95,7 @@ exports.bot = bot => {
             case "speakers":
                 let speakersMd = "Our speakers this year are:\n";
                 speakers && speakers.map(speaker => {
-                    speakersMd += `${speaker.name} ${speaker.aboutMe ? ` - [learn more](${speaker.aboutMe})` : ''}\n`;
+                    speakersMd += `${speaker.twitter ? `[🐦](${speaker.twitter})` : "    "} ${speaker.name} ${speaker.aboutMe ? ` - [learn more](${speaker.aboutMe})` : ''}\n`;
                 });
                 return ctx.replyWithMarkdown(speakersMd, Extra.webPreview(false));
             default:

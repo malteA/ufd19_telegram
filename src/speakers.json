@@ -70,22 +70,32 @@
     "twitter": "https://twitter.com/RamonadeWit"
 }, {
     "id": "38aad30a-5076-4fe9-8504-b6995b60956e",
-    "name": "",
+    "name": "Kim Sneum Madsen",
+    "aboutMe": "",
+    "twitter": ""
+}, {
+    "id": "1bf5d9d4-961d-4d7f-a0ec-4603f79825cf",
+    "name": "Jacob Midtgaard-Olesen",
     "aboutMe": "",
     "twitter": ""
 }, {
     "id": "916ade61-aac0-4226-93e3-c979a5853682",
     "name": "Linus Dahl",
     "aboutMe": "",
-    "twitter": ""
+    "twitter": "https://twitter.com/limpa123"
 }, {
     "id": "dc5dd9e7-a7fe-42b0-9576-19c94b2bff46",
     "name": "Jens Josefsson",
     "aboutMe": "",
-    "twitter": ""
+    "twitter": "https://twitter.com/JensJosefsson1"
 }, {
     "id": "3a2f1582-47fb-4105-bc36-c81716b0061a",
     "name": "Kenneth Jacobsen",
+    "aboutMe": "",
+    "twitter": "https://twitter.com/Kennethxyz"
+}, {
+    "id": "0d78b5ab-5921-4110-a190-3d7b2c4d9715",
+    "name": "Christian Wendler",
     "aboutMe": "",
     "twitter": ""
 }]

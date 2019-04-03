@@ -38,12 +38,12 @@ const configureWs = server => {
                     helpMd += "Here are the Commands:\n";
                     helpMd += "/sessions\n";
                     helpMd += "/speakers";
-                    return sendMessage(ws, "help");
+                    return sendMessage(ws, helpMd);
                 case "/sessions":
                     sendMessage(ws, "Our Sessions this Year are:");
                     let sessionsMd = "";
                     sessions && sessions.map(session => {
-                        sessionsMd += `${parseDateToTime(session.timeFrom)} - *${session.title}*\n`;
+                        sessionsMd += `${parseDateToTime(session.timeFrom)} - ${session.lang === "en" ? "🇬🇧" : "🇩🇪"} *${session.title}*\n`;
                         session.speakers.map(sessionSpeaker => {
                             let speaker = speakers.find(x => x.id === sessionSpeaker);
                             sessionsMd += `(${speaker ? speaker.name : ""})\n`;
