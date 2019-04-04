@@ -72,7 +72,6 @@ exports.bot = bot => {
         switch(intent) {
             case "next_session":
                 let nextSessionsMd = "No Session Found";
-                ctx.reply(parseDateToTime(parameters.time));
                 let nextSessions = sortedSessions
                 .filter(x => {
                         const timeFrom = parseDateToTime(x.timeFrom); 
@@ -85,9 +84,13 @@ exports.bot = bot => {
                 if (nextSessions && nextSessions.length !== 0) {
                     nextSessionsMd = nextSessions.length === 1 ? "Next Session\n" : "Next Sessions\n";
                     nextSessions.map(nextSession => {
-                        nextSessionsMd += `${session.lang === "en" ? "🇬🇧" : "🇩🇪"} ${parseDateToTime(nextSession.timeFrom)} will be "${nextSession.title}" \n`;
+                        nextSessionsMd += `${nextSession.lang === "en" ? "🇬🇧" : "🇩🇪"} ${parseDateToTime(nextSession.timeFrom)} - "${nextSession.title}" \n`;
+                        nextSession.speakers.map(sessionSpeaker => {
+                            let speaker = speakers.find(x => x.id === sessionSpeaker);
+                            nextSessionsMd += `_(${speaker ? speaker.name : ""})_\n`;
+                        });
+                        nextSessionsMd += `Room: ${nextSession.track}\n`;
                     })
-                    nextSessionsMd += `Room: ${session.track}\n`;
                 }
                 return ctx.replyWithMarkdown(nextSessionsMd, Extra.webPreview(false));
             case "location":
