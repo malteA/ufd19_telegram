@@ -7,6 +7,8 @@ const speakers = require("../speakers");
 const wsEmitter = new EventEmitter();
 const WebSocketServer = WebSocket.Server;
 
+const getIntent = require("./dialogflow");
+
 let emitter;
 const connectedClients = [];
 
@@ -39,7 +41,7 @@ const configureWs = server => {
     wss.on("connection", (ws, req) => {
         sendInfo(ws, "gday mate");
 
-        ws.on("message", message => {
+        ws.on("message", async message => {
             switch (message.toLowerCase()) {
                 case "/help":
                 case "help":
@@ -69,7 +71,43 @@ const configureWs = server => {
                     });
                     return sendMessage(ws, speakersMd);
                 default:
-                    return sendMessage(ws, "default");
+                    const language = "en";
+                    const {intent, parameters} = await getIntent(message, language);
+                    
+                    switch(intent) {
+                        case "next_session":
+                            let nextSessionsMd = "No Session Found";
+                            let nextSessions = sortedSessions
+                            .filter(x => {
+                                const timeFrom = parseDateToTime(x.timeFrom); 
+                                const matched = timeFrom === parseDateToTime(parameters.time)
+                                return matched;
+                            });
+                            if (nextSessions.length === 0) {
+                                nextSessions = sortedSessions.filter(x => parseDateToTime(x.timeFrom >= parseDateToTime(parameters.time))).slice(0, 3);
+                            }
+                            if (nextSessions && nextSessions.length !== 0) {
+                                nextSessionsMd = nextSessions.length === 1 ? "Next Session\n" : "Next Sessions\n";
+                                nextSessions.map(nextSession => {
+                                    nextSessionsMd += `${nextSession.lang === "en" ? "🇬🇧" : "🇩🇪"} ${parseDateToTime(nextSession.timeFrom)} - "${nextSession.title}" \n`;
+                                    nextSession.speakers.map(sessionSpeaker => {
+                                        let speaker = speakers.find(x => x.id === sessionSpeaker);
+                                        nextSessionsMd += `(${speaker ? speaker.name : ""})\n`;
+                                    });
+                                    nextSessionsMd += `Room: ${nextSession.track}\n`;
+                                })
+                            }
+                            return sendMessage(ws, nextSessionsMd);
+                        case "speakers":
+                            let speakersMd = "Our speakers this year are:\n";
+                            speakers && speakers.map(speaker => {
+                                speakersMd += `${speaker.name}\n`;
+                            });
+                            return sendMessage(ws, speakersMd);
+                        default:
+                            console.log(intent);
+                            return sendMessage(ws, "No results found");
+                    }
             }
         });
         console.log(`connected with ip: ${req.connection.remoteAddress}`);

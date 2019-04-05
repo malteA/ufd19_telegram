@@ -22,17 +22,6 @@
         ]
     },
     {
-        "id": "1a289d0c-057f-441e-bb4f-57f1d8369a61",
-        "timeFrom": "2019-04-05T17:00:00",
-        "timeTo": "2019-04-05T18:00:00",
-        "title": "Performance in the Javascript Era",
-        "lang": "en",
-        "track": "I",
-        "speakers": [
-            "cc83f26f-5f76-4a68-9365-121b5c1f3cf5"
-        ]
-    },
-    {
         "id": "4fdd3976-5b70-4005-87ef-236672d36c0b",
         "timeFrom": "2019-04-05T12:15:00",
         "timeTo": "2019-04-05T13:15:00",
